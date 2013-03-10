@@ -26,6 +26,7 @@ debug:
 		${INPUT} > build/output.coffee
 
 compile:
+	mkdir -p build/
 	@echo "> Compiling - Use make debug if compilation fails"
 	@coffee $(CONCAT) -i src/tetris.coffee -i \
 		${INPUT} | coffee -sc > build/output.js
