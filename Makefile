@@ -10,10 +10,13 @@ INPUT+= src/achievements.coffee
 INPUT+= src/cache.coffee
 INPUT+= src/settings.coffee
 
-.PHONY: all debug compile concat html tokens publish minify
+.PHONY: all clean debug compile concat html tokens publish minify
 
 all: compile
 publish: compile minify html
+
+clean:
+	rm -rf build/
 
 debug:
 	mkdir -p build/
