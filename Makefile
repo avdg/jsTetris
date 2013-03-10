@@ -1,7 +1,6 @@
-# Put coffeescript files here from bottom to top
-
 CONCAT = lib/coffeescript-concat.coffee
 
+# Put coffeescript files here from bottom to top
 INPUT=
 INPUT+= src/keyHandler.coffee
 INPUT+= src/draw.coffee
