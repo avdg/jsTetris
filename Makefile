@@ -9,6 +9,8 @@ INPUT+= src/achievements.coffee
 INPUT+= src/cache.coffee
 INPUT+= src/settings.coffee
 
+INPUT+= lib/generic.coffee
+
 .PHONY: all clean debug compile concat html tokens publish minify
 
 all: compile

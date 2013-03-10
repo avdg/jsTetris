@@ -85,18 +85,6 @@ init = () ->
 	# Load resources on the background
 	getImage("clown")
 
-	# use requestAnimationFrame to draw
-	if !window.requestAnimationFrame
-		window.requestAnimationFrame = (() ->
-			window.webkitRequestAnimationFrame ||
-			window.mozRequestAnimationFrame ||
-			window.oRequestAnimationFrame ||
-			window.msRequestAnimationFrame ||
-			(callback) ->
-				window.setTimeout(callback, 1000 / 60);
-				return
-		)()
-
 	# Calculate srs blocks - TODO calculate size
 	for i in cache.blockTypes by 1
 		l = cache.blocks.srs.initials[i].slice(0)
