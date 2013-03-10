@@ -11,10 +11,10 @@ INPUT+= src/settings.coffee
 
 INPUT+= lib/generic.coffee
 
-.PHONY: all clean debug compile concat html tokens publish minify
+.PHONY: all clean debug compile concat html copy tokens publish minify
 
 all: compile
-publish: compile minify html
+publish: compile minify html copy
 
 clean:
 	rm -rf build/
@@ -40,6 +40,10 @@ minify:
 html:
 	@echo "> Writing html file"
 	@cat src/output1.html build/output.min.js src/output2.html > build/output.html
+
+copy:
+	@echo "> Copy files"
+	@cp -r files/img build/
 
 concat:
 	@echo "> Concatenating coffeescript files..."
