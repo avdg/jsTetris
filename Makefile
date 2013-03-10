@@ -1,5 +1,7 @@
 # Put coffeescript files here from bottom to top
 
+CONCAT = lib/coffeescript-concat.coffee
+
 INPUT=
 INPUT+= src/keyHandler.coffee
 INPUT+= src/draw.coffee
@@ -16,12 +18,12 @@ publish: compile minify html
 debug:
 	mkdir -p build/
 	coffee -co build/ src/
-	@coffee coffeescript-concat.coffee -i src/tetris.coffee -i \
+	@coffee $(CONCAT) -i src/tetris.coffee -i \
 		${INPUT} > build/output.coffee
 
 compile:
 	@echo "> Compiling - Use make debug if compilation fails"
-	@coffee coffeescript-concat.coffee -i src/tetris.coffee -i \
+	@coffee $(CONCAT) -i src/tetris.coffee -i \
 		${INPUT} | coffee -sc > build/output.js
 
 minify:
@@ -36,10 +38,10 @@ html:
 
 concat:
 	@echo "> Concatenating coffeescript files..."
-	@coffee coffeescript-concat.coffee -i src/tetris.coffee -i \
+	@coffee $(CONCAT) -i src/tetris.coffee -i \
 		${INPUT} > build/output.coffee
 
 tokens:
 	@echo "> Use make debug if compilation fails"
-	@coffee coffeescript-concat.coffee -i src/tetris.coffee -i \
+	@coffee $(CONCAT) -i src/tetris.coffee -i \
 		${INPUT} | coffee -st > build/tokens
